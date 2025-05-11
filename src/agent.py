@@ -1,0 +1,96 @@
+import re
+from typing import Dict, Any, Tuple
+from retrieval import Retriever
+from llm import LLMService
+from tools import Calculator, Dictionary
+
+class Agent:
+    def __init__(self, retriever: Retriever, llm_service: LLMService):
+        """Initialize the agent with necessary components.
+        
+        Args:
+            retriever: Retriever instance for retrieving relevant chunks
+            llm_service: LLMService instance for generating responses
+        """
+        self.retriever = retriever
+        self.llm_service = llm_service
+        self.calculator = Calculator()
+        self.dictionary = Dictionary()
+        
+        self.calculator_keywords = ['calculate', 'computation', 'compute', 'solve', 'what is', 'equals', 'result of']
+        self.dictionary_keywords = ['define', 'definition', 'meaning', 'what does', 'mean']
+        
+    def _detect_tool(self, query: str) -> Tuple[str, Dict[str, Any]]:
+        """Detect which tool to use based on the query.
+        
+        Args:
+            query: User query string
+            
+        Returns:
+            Tuple of (tool_name, tool_result)
+        """
+        if any(kw in query.lower() for kw in self.calculator_keywords) and re.search(r'\d', query):
+            calc_result = self.calculator.calculate(query)
+            if calc_result["success"]:
+                return "calculator", calc_result
+        
+        if any(kw in query.lower() for kw in self.dictionary_keywords):
+            dict_result = self.dictionary.define(query)
+            if dict_result["success"]:
+                return "dictionary", dict_result
+                
+        return "rag", {}
+    
+    def process_query(self, query: str) -> Dict[str, Any]:
+        """Process a user query and return a response.
+        
+        Args:
+            query: User query string
+            
+        Returns:
+            Dictionary with response and process information
+        """
+        tool_name, tool_result = self._detect_tool(query)
+        
+        response = {
+            "query": query,
+            "tool_used": tool_name,
+            "log": [f"Agent detected tool: {tool_name}"]
+        }
+        
+        if tool_name == "calculator":
+            response["result"] = tool_result["explanation"]
+            response["log"].append(f"Calculator processed: {tool_result['expression']} = {tool_result['result']}")
+            
+        elif tool_name == "dictionary":
+            definitions = []
+            for i, def_entry in enumerate(tool_result["definitions"]):
+                definitions.append(f"{i+1}. ({def_entry['part_of_speech']}) {def_entry['definition']}")
+                if def_entry['example']:
+                    definitions.append(f"   Example: {def_entry['example']}")
+                    
+            response["result"] = f"Definition of '{tool_result['word']}':\n" + "\n".join(definitions)
+            response["log"].append(f"Dictionary looked up: {tool_result['word']}")
+            
+        else:
+            response["log"].append("Retrieving relevant chunks...")
+            chunks = self.retriever.retrieve(query)
+            
+            response["retrieved_chunks"] = [
+                {
+                    "content": chunk["content"],
+                    "source": chunk["metadata"]["source"],
+                    "relevance_score": chunk["relevance_score"]
+                }
+                for chunk in chunks
+            ]
+            
+            response["log"].append(f"Retrieved {len(chunks)} chunks")
+            
+            response["log"].append("Generating response with LLM...")
+            llm_response = self.llm_service.generate_response(query, chunks)
+            
+            response["result"] = llm_response
+            response["log"].append("LLM response generated")
+            
+        return response

@@ -1,0 +1,323 @@
+What can I do if I forget my OPPO Account password?
+
+You can click "forgot password" on login page, after verifying your phone number or email address, the password can be reset. For more information, you can find it at: https://id.OPPO.com/account_faq_detail.html?type=password_title_1&language=EN
+
+ 
+
+My phone number is no longer in service. What should I do?
+
+If your number is no longer in service and you can't receive SMS verification code, you can click on "change verification method" on the verification page, then select "verification by email" or other options. For more informaiton, you can find it here:
+
+https://id.OPPO.com/account_faq_detail.html?type=password_title_3&language=EN
+
+ 
+
+Why can't I receive SMS verification codes?
+
+There can be various reasons. Find solutions here: https://id.OPPO.com/account_faq_detail.html?type=password_title_2&language=EN
+
+ 
+
+Why can't I receive email verification codes?
+
+There can be various reasons. Find solutions here: https://id.OPPO.com/account_faq_detail.html?type=password_title_4&language=EN
+
+ 
+
+Who can I consult if I have questions about my OPPO Account?
+
+If you have any questions regarding your OPPO Account, you can click on "Help Center" on the login page or click the following link: https://id.OPPO.com/account_faq.html?language=EN
+
+ 
+
+When will be the payment deadline after placing the order?
+
+After placing your order, your item(s) will be reserved only for 2 hours. You will have to place another order if the payment is not finished within 2 hours. Please note that the stock availability cannot be guaranteed if you miss the payment.
+
+ 
+
+How do I cancel my order?
+
+1. If no payment has been made, no further action is required - the order will automatically be canceled after 2 hours.
+
+ 
+
+2. If you have already paid for your order, you can try canceling your order in Order Section of your OPPO account.
+
+ 
+
+3. If that method doesn't work because your order has already been shipped, you can refuse the parcel when delivered. Once we verify its return, you will receive full refund. It takes around within 1-10 days to process a refund.
+
+ 
+
+What payment methods can I choose from?
+
+OPPO Store accepts a variety of payment methods online, you will be redirected to our payment provider PayU's website to complete your payment.
+
+You can choose one of the following payment methods from Payu:
+
+Credit card & Debit card
+
+Unified Payment Interface (UPI）Including: Google pay, Phone Pe, BHIM, PayTM, or you can add any UPI ID in PayU.
+
+Easy Monthly Installments (EMI) We will provide No Cost EMI from time to time.
+
+Net Banking
+
+Wallet
+
+Paytm
+
+Google pay
+
+ 
+
+Types of Credit & Debit Cards That Can Be Used
+
+In the India, we accept:
+
+American Express
+
+MasterCard
+
+Visa
+
+ 
+
+What should I do if there is a payment error?
+
+Please refer to the instructions in the error message - we have tailored them to be as helpful as possible in every scenario. If the error still exists, try placing a new order or contacting us via OPPO Chat Support or 1-800-103-7733 (9:00- 19:00, Mon to Sun).
+
+Common reasons for failed payments include: Online transactions have not been enabled; Transaction has been declined by the card issuer; Incorrect card details have been provided; Insufficient card balance; Too many payment attempts have been made.
+
+ 
+
+ 
+
+Does OPPO collect and restore my credit/ debit card details?
+
+Please rest assured that we would never collect your card details. After you confirm your order on the checkout page, you will be redirected to our payment service provider's encrypted page. Our current payment service providers include PayU. Please note that payment service providers are dependent by region and are subject to change.
+
+ 
+
+Why is my order cancelled when I want to make a payment?
+
+Payments can be unsuccessful for the following reasons:
+
+ 
+
+You enter incorrect credit or debit card details, e.g. name on the card, card number, CVV, 3D secure PIN and expiry date. In case of an American Express card, your transaction can fail if your billing address PIN code is incorrect.
+
+You provide card details that are no longer valid or need to be updated.
+
+Your bank is going through an outage.
+
+You close or refresh the page or press backspace while the transaction is being processed by your bank.
+
+The connection between PayU and your bank fails due to some technical issues and the transaction cannot be completed.
+
+Your card may be blocked for online transactions.
+
+You use a card that is not currently accepted on PayU.
+
+Order Timeout：When you take more than about 2 hours to confirm an order, the application has to time out, order will be cancelled.
+
+ 
+
+Secure Payments and Safe Ordering
+
+Security is a priority at OPPO store and we make every effort to ensure that our transaction process is safe and that your personal information is secure.
+
+ 
+
+1、Do Not Share Personal Information
+
+ 
+
+OPPO store will never e-mail or call you to ask you to disclose or verify your OPPO store password, credit card or bank-account number, or any other personal information. We also do not store your bank card information. If you are contacted or receive an unsolicited e-mail which asks you any of this information, disregard the request and report the incident to OPPO store for investigation.
+
+2、Identify False (Spoof or Phishing) E-mails
+
+ 
+
+If you receive an e-mail asking you for personal information or directing you to a site other than OPPO store, or asking you to pay outside of OPPO store Marketplace, it could be a "spoof" or "phishing" e-mail and should be considered as fraudulent.
+
+Genuine OPPO store e-mails come from an e-mail address ending with "@oppo.com". If you receive an e-mail in a different format i.e. oppo-security@hotmail.com, you can be sure that it's fraudulent.
+
+Some phishing e-mails contain links to websites that contain the word "oppo" somewhere in the URL but will take you to a completely different website. If you hover over the link you often can see the underlying URL which will be in a different format to those linked to within the oppo sites.
+
+If you click through a phishing e-mail and are taken to a page looking like "Your Account" or anything that asks you to verify or change your personal details, you should consider it as fraudulent.
+
+3、Purchases made on OPPO store are safe thanks to our Secure Server.
+
+ 
+
+OPPO store assures you that your information is completely protected and your purchases safe. We work to protect the security of your information during transmission by using Secure Sockets Layer (SSL) software. Our secure-server software encrypts all your personal information including name, phone number, email address and shipping address. The encryption process takes the characters you enter and converts them into bits of code that are then securely transmitted over the Internet.
+
+ 
+
+How to contact our payment provider PayU？
+
+URL:https://www.payu.com
+
+ 
+
+Address：Gustav Mahlerplein 5
+
+ 
+
+NL，North Holland，Amsterdam，1082
+
+ 
+
+Facebook: @PayU India
+
+ 
+
+Which delivery carrier do we choose?
+
+For delivery, most items are shipped by Bluedart and small amounts of items are shipped by Delhivery.
+
+ 
+
+Do I need to pay for the shipping fee?
+
+Free shipping for any item.
+
+ 
+
+How do I know my tracking number and how to track parcel delivery status?
+
+You can easily track the current location of your order using the latest feature directly through our OPPO Store app/website.
+
+ 
+
+Note : Once the order is shipped, you can check the waybill number/shipping number of your order from the order section of your OPPO Store account by visiting https://www.oppo.com/in/store/
+
+ 
+
+(Login to your OPPO Store Account>Me>All Orders->Track Order)
+
+ 
+
+When will I receive my package?
+
+We would make every effort to deliver your order within 1-5 business days. You can check the estimated time of arrival in our store app. (Login to your OPPO Store Account>Me>All Orders->Track Order)
+
+If there is a delay, we would notify you via email and provide estimated delivery date to you after you placed an order.
+
+ 
+
+Is there any area that our products cannot be delivered to?
+
+Yes, there is some area we can't reach due to carrier capacity
+
+However, due to the impact of Covid-19, certain areas will be temporarily classified as unreachable.
+
+ 
+
+Can I modify my invoice?
+
+We are sorry to inform you that once you have placed the order, the invoice cannot be modified. We recommend you to reject to sign the parcel and place the order again with the right invoice information.
+
+ 
+
+Can I add GSTIN in the invoice/bill?
+
+Adding GSTIN in invoice/bill is not available on OPPO Store.
+
+ 
+
+What should I do if my parcel is lost?
+
+If you feel that your parcel is lost or missing, please contact OPPO Support ASAP at 1-800-103-7733 (9:00- 19:00, Mon to Sun). Once we obtain relevant information, it will take 5 to 7 business days for us to process. We will try our best to tackle your case ASAP.
+
+ 
+
+How do I change my shipping method after placing an order?
+
+Unfortunately, once the order is placed, you will not be able to change the shipping method. Be sure to double check before clicking go-ahead!
+
+ 
+
+What should I do if my parcel was damaged during delivery?
+
+If items ordered online from OPPO store that are found arrived damaged or incorrect, please do not sign the package, and claim rejection to the courier. Once we receive your item, a refund will be initiated immediately.
+
+ 
+
+The refund process will be initiated after the package backs to the warehouse. The process will be completed within 1-10 days (counted from the date of RTO). Your refund will be directed to the original source of payment. 
+
+ 
+
+ 
+
+ 
+
+What should I do if my tracking status has not been updated for an extended period of time?
+
+If you notice that your tracking number has not been updated for an extended period of time, please contact us via OPPO Chat Support or 1-800-103-7733 (9:00- 19:00, Mon to Sun). Once we obtain the relevant information, it will take us 5 to 7 business days to process. We will try our best to tackle your case ASAP.
+
+ 
+
+What are the general conditions for using OPPO vouchers？
+
+Terms of Use for Vouchers
+
+ 
+
+* You can only use one voucher code for each order.
+
+* If you cancel an order or request a refund, applied voucher codes will be returned to your account.
+
+* Vouchers are not transferable, exchangeable, redeemable for cash or replaceable when expired.
+
+* OPPO Store reserves the right to revoke or re-evaluate the use of any and all issued vouchers.
+
+* Vouchers can be used together with gift code.
+
+ 
+
+Can I renew the voucher if it expires?
+
+Expired voucher can't be renewed. Please check the validation period when acquiring a voucher.
+
+ 
+
+ 
+
+           
+
+ How long can I receive the refund after I cancel my order?
+
+ 
+
+At OPPO we make every effort to refund the amount at the earliest once the order cancellation is successful. However, you are greatly welcome to contact us if the refund has not been credited in the given time period.
+
+ 
+
+ 
+
+1. Cancelling order: If your order is not shipped and is cancelled successfully, you are expected to receive your refund within 1-7 days.
+
+ 
+
+ 
+
+ 
+
+2. Rejecting package: The refund process will be initiated after the package backs to the warehouse. The process will be completed within 1-10 days (counted from the date of RTO). Your refund will be directed to the original source of payment. 
+
+ 
+
+ 
+
+What are the OPPO warranty policy?
+
+For the OPPO warranty policy, please refer to https://support.oppo.com/in/warranty-policy/. （OPPO Website-Support-Warranty Policy)
+
+ 
+
+ 
+
+Note: The exact time of processing your refund depends on the payment provider. If you haven't received your refund in the given time period, we suggest you contact your payment provider for details. 
