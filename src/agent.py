@@ -9,25 +9,25 @@ class Agent:
         """Initialize the agent with necessary components.
         
         Args:
-            retriever: Retriever instance for retrieving relevant chunks
-            llm_service: LLMService instance for generating responses
+            retriever: Retriever instance for retrieving relevant chunks.
+            llm_service: LLMService instance for generating responses.
         """
         self.retriever = retriever
         self.llm_service = llm_service
         self.calculator = Calculator()
         self.dictionary = Dictionary()
         
-        self.calculator_keywords = ['calculate', 'computation', 'compute', 'solve', 'what is', 'equals', 'result of']
-        self.dictionary_keywords = ['define', 'definition', 'meaning', 'what does', 'mean']
+        self.calculator_keywords = ['calculate', 'computation', 'compute', 'solve', 'what is', 'equals', 'result of', 'evaluate']
+        self.dictionary_keywords = ['define', 'definition', 'meaning', 'what does', 'mean', 'what is', 'explain', 'describe']
         
     def _detect_tool(self, query: str) -> Tuple[str, Dict[str, Any]]:
         """Detect which tool to use based on the query.
         
         Args:
-            query: User query string
+            query: User query string.
             
         Returns:
-            Tuple of (tool_name, tool_result)
+            Tuple of (tool_name, tool_result).
         """
         if any(kw in query.lower() for kw in self.calculator_keywords) and re.search(r'\d', query):
             calc_result = self.calculator.calculate(query)
@@ -39,16 +39,16 @@ class Agent:
             if dict_result["success"]:
                 return "dictionary", dict_result
                 
-        return "rag", {}
+        return "other", {}
     
     def process_query(self, query: str) -> Dict[str, Any]:
         """Process a user query and return a response.
         
         Args:
-            query: User query string
+            query: User query string.
             
         Returns:
-            Dictionary with response and process information
+            Dictionary with response and process information.
         """
         tool_name, tool_result = self._detect_tool(query)
         
@@ -82,13 +82,20 @@ class Agent:
                     "source": chunk["metadata"]["source"],
                     "relevance_score": chunk["relevance_score"]
                 }
-                for chunk in chunks
+                for chunk in chunks if chunk["relevance_score"] > 0.4
             ]
             
-            response["log"].append(f"Retrieved {len(chunks)} chunks")
+            if response["retrieved_chunks"] == []:
+                response["log"].append("No relevant chunks found.")
+                response["log"].append("Agent detected tool: none")
+                response["tool_used"] = "none"
+            else:
+                response["log"].append(f"Retrieved {len(chunks)} chunks")
+                response["log"].append("Agent detected tool: rag")
+                response["tool_used"] = "rag"
             
             response["log"].append("Generating response with LLM...")
-            llm_response = self.llm_service.generate_response(query, chunks)
+            llm_response = self.llm_service.generate_response(query, (None if response["retrieved_chunks"] == [] else response["retrieved_chunks"]))
             
             response["result"] = llm_response
             response["log"].append("LLM response generated")

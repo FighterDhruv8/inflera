@@ -17,15 +17,15 @@ class Calculator:
             'cos': lambda x: math.cos(math.radians(x)),
             'tan': lambda x: math.tan(math.radians(x))
         }
-        
+    
     def extract_math_expression(self, query: str) -> str:
         """Extract a mathematical expression from the query.
         
         Args:
-            query: User query string
+            query: User query string.
             
         Returns:
-            Extracted math expression or empty string if none found
+            Extracted math expression or empty string if none found.
         """
         patterns = [
             r'calculate\s+([\d\s\+\-\*\/\^\(\)\.\,]+)',
@@ -40,17 +40,16 @@ class Calculator:
             match = re.search(pattern, query.lower())
             if match:
                 return match.group(1).strip()
-                
         return ""
     
     def calculate(self, query: str) -> Dict[str, Any]:
         """Perform calculation based on the query.
         
         Args:
-            query: User query string
+            query: User query string.
             
         Returns:
-            Dictionary with calculation result and process
+            Dictionary with calculation result and process.
         """
         expression = self.extract_math_expression(query)
         
@@ -86,16 +85,17 @@ class Dictionary:
         """Extract a word to define from the query.
         
         Args:
-            query: User query string
+            query: User query string.
             
         Returns:
-            Word to define or empty string if none found
+            Word to define or empty string if none found.
         """
         patterns = [
             r'define\s+(?:the\s+word\s+)?([a-zA-Z]+)',
             r'what does\s+([a-zA-Z]+)\s+mean',
             r'meaning of\s+([a-zA-Z]+)',
-            r'definition of\s+([a-zA-Z]+)'
+            r'definition of\s+([a-zA-Z]+)',
+            r'what is\s+([a-zA-Z]+)'
         ]
         
         for pattern in patterns:
@@ -109,10 +109,10 @@ class Dictionary:
         """Look up the definition of a word.
         
         Args:
-            query: User query string
+            query: User query string.
             
         Returns:
-            Dictionary with word definition information
+            Dictionary with word definition information.
         """
         word = self.extract_word(query)
         

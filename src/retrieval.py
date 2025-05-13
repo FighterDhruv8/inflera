@@ -5,19 +5,19 @@ class Retriever:
         """Initialize the retriever with a vector store.
         
         Args:
-            vector_store: VectorStore instance
+            vector_store: VectorStore instance.
         """
         self.vector_store = vector_store
-        
+    
     def retrieve(self, query: str, top_k: int = 3) -> List[Dict[str, Any]]:
         """Retrieve the top_k most relevant chunks for the query.
         
         Args:
-            query: Query string
-            top_k: Number of chunks to retrieve
+            query: The user query string.
+            (optional) top_k: Number of chunks to retrieve. Default is 3.
             
         Returns:
-            List of the top_k most relevant chunks with their metadata
+            List of the top_k most relevant chunks with their metadata and relevance scores. Relevance scores are calculated as 1 / (1 + cosine_sim_distance).
         """
         if self.vector_store.collection is None or self.vector_store.collection.count() == 0:
             raise ValueError("Vector store is empty. Please add documents first.")

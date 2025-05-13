@@ -6,24 +6,26 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
 
 class DocumentLoader:
-    def __init__(self, data_dir: str = "data"):
+    def __init__(self, data_dir: str = f"{os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data\\")}"):
         """Initialize the document loader.
         
         Args:
-            data_dir: Directory containing documents to load
+            (optional) data_dir: Directory containing documents to load. Default is the "data" directory that's listed with "src".
         """
-        self.data_dir = data_dir
         
+        self.data_dir = data_dir
+
     def load_documents(self) -> List[Dict[str, Any]]:
-        """Load all documents from the data directory using LangChain.
+        """Load all documents from the data directory.
         
         Returns:
-            A list of document dictionaries with 'content' and 'metadata'
+            A list of document dictionaries with 'content' and 'metadata'.
         """
         documents = []
         
         for filename in os.listdir(self.data_dir):
             if filename.endswith('.txt'):
+                print(f"Loading {filename}...")
                 file_path = os.path.join(self.data_dir, filename)
                 
                 try:
@@ -48,25 +50,25 @@ class DocumentLoader:
         """Chunk documents into smaller pieces using LangChain's text splitter.
         
         Args:
-            documents: List of document dictionaries
-            chunk_size: Maximum size of each chunk
-            chunk_overlap: Overlap between chunks
+            documents: List of document dictionaries.
+            (optional) chunk_size: Maximum size of each chunk. Default is 1000 characters.
+            (optional) chunk_overlap: Overlap between chunks. Default is 200 characters.
             
         Returns:
-            A list of chunk dictionaries with 'content' and 'metadata'
+            A list of chunk dictionaries with 'content' and 'metadata'.
         """
         langchain_docs = [
             Document(
-                page_content=doc['content'],
-                metadata=doc['metadata']
+                page_content = doc['content'],
+                metadata = doc['metadata']
             ) for doc in documents
         ]
         
         text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=chunk_size,
-            chunk_overlap=chunk_overlap,
-            length_function=len,
-            separators=["\n\n", "\n", ". ", " ", ""]
+            chunk_size = chunk_size,
+            chunk_overlap = chunk_overlap,
+            length_function = len,
+            separators = ["\n\n", "\n", ". ", " ", ""]
         )
         
         split_docs = text_splitter.split_documents(langchain_docs)
