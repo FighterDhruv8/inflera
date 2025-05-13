@@ -30,11 +30,11 @@ class main:
         self.vector_store.add_chunks(self.chunks)
         
         if args.model and not args.model_url:
-            self.llm_service = LLMService(model_name=args.model)
+            self.llm_service = LLMService(model_name = args.model)
         elif args.model_url and not args.model:
-            self.llm_service = LLMService(base_url=args.model_url)
+            self.llm_service = LLMService(base_url = args.model_url)
         elif args.model and args.model_url:
-            self.llm_service = LLMService(model_name=args.model, base_url=args.model_url)
+            self.llm_service = LLMService(model_name = args.model, base_url = args.model_url)
         else:
             self.llm_service = LLMService()
         
@@ -104,6 +104,11 @@ class main:
             print(f"QUERY: {self.response['query']}")
             print(f"TOOL: {self.response['tool_used']}")
             print("-"*50)
+            
+            if self.response['result'] == "Invalid model.":
+                break
+            if self.response['result'] == "Error while accessing LLM service. Please ensure the Ollama server is running by running 'ollama ps'.\n(Maybe the model is listening on a different port?)":
+                break
             
             if self.response['tool_used'] == 'rag':
                 print("RETRIEVED CHUNKS:")

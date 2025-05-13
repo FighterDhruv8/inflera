@@ -97,7 +97,14 @@ class Agent:
             response["log"].append("Generating response with LLM...")
             llm_response = self.llm_service.generate_response(query, (None if response["retrieved_chunks"] == [] else response["retrieved_chunks"]))
             
-            response["result"] = llm_response
-            response["log"].append("LLM response generated")
+            if(llm_response == "Invalid model."):
+                response["result"] = "Invalid model."
+                response["log"].append("Invalid model.")
+            elif(llm_response == "Error while accessing LLM service. Please ensure the Ollama server is running by running 'ollama ps'.\n(Maybe the model is listening on a different port?)"):
+                response["result"] = llm_response
+                response["log"].append("Error occurred while accessing LLM service.")
+            else:
+                response["result"] = llm_response
+                response["log"].append("LLM response generated")
             
         return response

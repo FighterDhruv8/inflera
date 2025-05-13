@@ -1,11 +1,19 @@
-## How to Run
+# How to Run
 
+### Via Streamlit on Your Local System
 1. Clone or download this repo to your local system.
 2. Make sure you have python installed.
-3. _(optional)_ Create a virtual environment using ```python -m venv your_venv_name_here```. If you do this, make sure to use the python interpreter inside the venv!
+3. _(optional)_ Create a virtual environment using ```python.exe -m venv your_venv_name_here```. If you do this, make sure to use the python interpreter inside the venv going ahead!
+4. Run ```python.exe -m pip install streamlit``` via CLI and wait for the installation to finish.
+5. Run ```streamlit run app.py``` via CLI.
+
+### Via Command Line Interface
+1. Clone or download this repo to your local system.
+2. Make sure you have python installed.
+3. _(optional)_ Create a virtual environment using ```python.exe -m venv your_venv_name_here```. If you do this, make sure to use the python interpreter inside the venv going ahead!
 4. Run the [main.py](src/main.py) file inside the [src](src/) directory **from the command line**.
 
-## How the System Works
+# How the System Works
 
 1. **Data Ingestion**:
    - The system loads sample documents from the [data](data/) directory.

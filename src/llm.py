@@ -1,6 +1,7 @@
 from typing import List, Dict, Any
 from langchain_ollama import ChatOllama
 from langchain.prompts import PromptTemplate
+from ollama import _types
 import shutil
 
 class LLMService:
@@ -70,6 +71,11 @@ class LLMService:
                 chain = prompt | llm
                 response = chain.invoke(query)
             return response
+        except _types.ResponseError as e:
+            s = "Invalid model."
+            print(s)
+            return s
         except Exception as e:
-            print("Error while accessing LLM service. Please ensure the Ollama server is running first by running 'ollama ps'.")
-            exit(1)
+            s = "Error while accessing LLM service. Please ensure the Ollama server is running by running 'ollama ps'.\n(Maybe the model is listening on a different port?)"
+            print(s)
+            return s
