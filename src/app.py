@@ -136,6 +136,11 @@ with col1:
                 
                 st.subheader("Result")
                 st.info(content)
+                
+                if response.get('reason'):
+                    st.subheader("Reasoning")
+                    for _ in response.get('reason'):
+                        st.markdown(_)
 
                 st.subheader("Query Result")
                 st.markdown(f"**Query:** {response.get('query', q)}")

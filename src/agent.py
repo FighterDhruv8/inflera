@@ -1,5 +1,5 @@
 import re
-from typing import Dict, Any, Tuple
+from typing import Any
 from retrieval import Retriever
 from llm import LLMService
 from tools import Calculator, Dictionary
@@ -20,7 +20,7 @@ class Agent:
         self.calculator_keywords = ['calculate', 'computation', 'compute', 'solve', 'what is', 'equals', 'result of', 'evaluate']
         self.dictionary_keywords = ['define', 'definition', 'meaning', 'what does', 'mean', 'what is', 'explain', 'describe']
         
-    def _detect_tool(self, query: str) -> Tuple[str, Dict[str, Any]]:
+    def _detect_tool(self, query: str) -> tuple[str, dict[str, Any]]:
         """Detect which tool to use based on the query.
         
         Args:
@@ -41,7 +41,7 @@ class Agent:
                 
         return "other", {}
     
-    def process_query(self, query: str) -> Dict[str, Any]:
+    def process_query(self, query: str) -> dict[str, Any]:
         """Process a user query and return a response.
         
         Args:
@@ -55,7 +55,8 @@ class Agent:
         response = {
             "query": query,
             "tool_used": tool_name,
-            "log": [f"Agent detected tool: {tool_name}"]
+            "log": [f"Agent detected tool: {tool_name}"],
+            "reason": None
         }
         
         if tool_name == "calculator":
@@ -95,7 +96,7 @@ class Agent:
                 response["tool_used"] = "rag"
             
             response["log"].append("Generating response with LLM...")
-            llm_response = self.llm_service.generate_response(query, (None if response["retrieved_chunks"] == [] else response["retrieved_chunks"]))
+            llm_response, response["reason"] = self.llm_service.generate_response(query, (None if response["retrieved_chunks"] == [] else response["retrieved_chunks"]))
             
             if(llm_response == "Invalid model."):
                 response["result"] = "Invalid model."

@@ -1,8 +1,10 @@
-from typing import List, Dict, Any
+from typing import Any
 from langchain_ollama import ChatOllama
 from langchain.prompts import PromptTemplate
+from langchain_core.messages import AIMessage
 from ollama import _types
 import shutil
+import re
 
 class LLMService:
     def __init__(self, model_name: str = "gemma3:1b", base_url: str = "http://localhost:11434"):
@@ -46,8 +48,22 @@ class LLMService:
                 USER QUESTION: {question}'''
             )
         )
+    
+    def _remove_reasoning_tags(self, message: AIMessage) -> tuple[AIMessage, list[str]]:
+        """Remove reasoning tags from the AI message.
         
-    def generate_response(self, query: str, context_chunks: List[Dict[str, Any]] = None) -> str:
+        Args:
+            message: The LLM output to process.
+            
+        Returns:
+            Tuple containing the LLM output with reasoning removed and the reasoning text.
+        """
+        
+        reason = re.findall(r'<think>(.*?)</think>', message.content, flags = re.DOTALL)
+        message.content = re.sub(r'<think>.*?</think>', '', message.content, flags = re.DOTALL)
+        return message, reason
+    
+    def generate_response(self, query: str, context_chunks: list[dict[str, Any]] = None) -> str:
         """Generate a response using the Ollama model via LangChain.
         
         Args:
@@ -70,7 +86,7 @@ class LLMService:
                 prompt = self.qa_without_context_template
                 chain = prompt | llm
                 response = chain.invoke(query)
-            return response
+            return self._remove_reasoning_tags(response)
         except _types.ResponseError as e:
             s = "Invalid model."
             print(s)

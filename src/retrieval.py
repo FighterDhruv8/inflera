@@ -1,4 +1,4 @@
-from typing import List, Dict, Any
+from typing import Any
 
 class Retriever:
     def __init__(self, vector_store):
@@ -9,7 +9,7 @@ class Retriever:
         """
         self.vector_store = vector_store
     
-    def retrieve(self, query: str, top_k: int = 3) -> List[Dict[str, Any]]:
+    def retrieve(self, query: str, top_k: int = 3) -> list[dict[str, Any]]:
         """Retrieve the top_k most relevant chunks for the query.
         
         Args:

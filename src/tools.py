@@ -1,7 +1,7 @@
 import re
 import math
 import requests
-from typing import Dict, Any
+from typing import Any
 
 class Calculator:
     def __init__(self):
@@ -42,7 +42,7 @@ class Calculator:
                 return match.group(1).strip()
         return ""
     
-    def calculate(self, query: str) -> Dict[str, Any]:
+    def calculate(self, query: str) -> dict[str, Any]:
         """Perform calculation based on the query.
         
         Args:
@@ -105,7 +105,7 @@ class Dictionary:
                 
         return ""
     
-    def define(self, query: str) -> Dict[str, Any]:
+    def define(self, query: str) -> dict[str, Any]:
         """Look up the definition of a word.
         
         Args:

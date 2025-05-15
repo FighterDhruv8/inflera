@@ -1,5 +1,5 @@
 import os
-from typing import List, Dict, Any
+from typing import Any
 
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -15,7 +15,7 @@ class DocumentLoader:
         
         self.data_dir = data_dir
 
-    def load_documents(self) -> List[Dict[str, Any]]:
+    def load_documents(self) -> list[dict[str, Any]]:
         """Load all documents from the data directory.
         
         Returns:
@@ -46,7 +46,7 @@ class DocumentLoader:
                 
         return documents
     
-    def chunk_documents(self, documents: List[Dict[str, Any]], chunk_size: int = 1000, chunk_overlap: int = 200) -> List[Dict[str, Any]]:
+    def chunk_documents(self, documents: list[dict[str, Any]], chunk_size: int = 1000, chunk_overlap: int = 200) -> list[dict[str, Any]]:
         """Chunk documents into smaller pieces using LangChain's text splitter.
         
         Args:

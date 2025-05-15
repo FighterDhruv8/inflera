@@ -98,17 +98,17 @@ class main:
             
             self.response = self.agent.process_query(query)
             
+            if self.response['result'] == "Invalid model.":
+                break
+            if self.response['result'] == "Error while accessing LLM service. Please ensure the Ollama server is running by running 'ollama ps'.\n(Maybe the model is listening on a different port?)":
+                break
+            
             self.logs = self.response['log']
             
             print("\n" + "="*50)
             print(f"QUERY: {self.response['query']}")
             print(f"TOOL: {self.response['tool_used']}")
             print("-"*50)
-            
-            if self.response['result'] == "Invalid model.":
-                break
-            if self.response['result'] == "Error while accessing LLM service. Please ensure the Ollama server is running by running 'ollama ps'.\n(Maybe the model is listening on a different port?)":
-                break
             
             if self.response['tool_used'] == 'rag':
                 print("RETRIEVED CHUNKS:")
@@ -123,6 +123,12 @@ class main:
                     "Metadata": self.response['result'].response_metadata,
                     "ID": self.response['result'].id
                     }
+                
+                if self.response['reason']:
+                    print("REASONING:")
+                    [print(f"{_}") for _ in self.response['reason']]
+                    print("-"*50)
+                
                 print("RESULT:")
                 print(self.response['result'].content)
                 print("="*50 + "\n")

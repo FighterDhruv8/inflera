@@ -36,15 +36,14 @@
    - All decision steps are logged for transparency
 
 5. **User Interface**:
-   - The CLI can be used, no webapp was made due to lack of time.
-   - Results show the tool used, retrieved context, and process logs.
+   - UI was made using streamlit. The CLI can also be used.
+   - Results show the final ouput, reasoning (if any), retrieved context (if any), tool used, process logs, additional information.
 
 ## Next Steps
 
 You could extend this system by:
-1. Adding a webapp UI.
-2. Adding more specialized tools.
-3. Supporting document upload through the UI.
-4. Implementing a chat history database.
-5. Adding more advanced agent frameworks like ReAct or MRKL.
-6. Supporting multiple LLM providers.
+1. Adding more specialized tools.
+2. Supporting document upload through the UI.
+3. Implementing a chat history database.
+4. Adding more advanced agent frameworks like ReAct or MRKL.
+5. Supporting multiple LLM providers.

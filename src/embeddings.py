@@ -1,4 +1,4 @@
-from typing import List, Dict, Any
+from typing import Any
 import chromadb
 
 class VectorStore:
@@ -20,7 +20,7 @@ class VectorStore:
         except Exception as e:
             print(f"Error while accessing database:\n{e}")
     
-    def add_chunks(self, chunks: List[Dict[str, Any]]) -> None:
+    def add_chunks(self, chunks: list[dict[str, Any]]) -> None:
         """Add document chunks to the vector store.
         
         Args:
@@ -43,7 +43,7 @@ class VectorStore:
             ids = ids
         )
     
-    def search(self, query: str, n_results: int = 3) -> List:
+    def search(self, query: str, n_results: int = 3) -> list[Any]:
         """Search for relevant chunks.
         
         Args:
